@@ -1,11 +1,10 @@
 language: go
 
 script:
-- |
-  go run convert/wiki.go
-  cd docs
-  git init
-  git add --all
-  git commit -m 'wiki'
-  git remote add upstream git@github.com:mysteriumnetwork/docs.wiki.git
-  git push -f -u upstream master
+  - go run convert/wiki.go
+  - cd docs
+  - git init
+  - git add --all
+  - git commit -m 'wiki'
+  - git remote add upstream https://${TRAVIS_REPO_SLUG%/*}:${GITHUB_API_KEY}@github.com/${TRAVIS_REPO_SLUG}.git
+  - git push -f -u upstream master
