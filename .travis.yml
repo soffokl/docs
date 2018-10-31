@@ -1,0 +1,11 @@
+language: go
+
+script:
+- |
+  go run convert/wiki.go
+  cd docs
+  git init
+  git add --all
+  git commit -m 'wiki'
+  git remote add upstream git@github.com:mysteriumnetwork/docs.wiki.git
+  git push -f -u upstream master
