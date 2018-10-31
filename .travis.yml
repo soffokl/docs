@@ -6,5 +6,6 @@ script:
   - git init
   - git add --all
   - git commit -m 'wiki'
+  - echo git remote add upstream https://${TRAVIS_REPO_SLUG%/*}:GITHUB_API_KEY@github.com/${TRAVIS_REPO_SLUG}.wiki.git
   - git remote add upstream https://${TRAVIS_REPO_SLUG%/*}:${GITHUB_API_KEY}@github.com/${TRAVIS_REPO_SLUG}.wiki.git
   - git push -f -u upstream master
